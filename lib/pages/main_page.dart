@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:tdd_demo/repository/user_repository.dart';
+import 'package:tdd_demo/entities/user.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _MainPageState createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
   TextEditingController controller = TextEditingController(text: '0');
-  // User? user;
+  User? user;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +24,8 @@ class _MainPageState extends State<MainPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // user == null ? const Text('no data') : Text('ID: ${user!.id}'),
-            // if (user != null) Text('Name: ${user!.name}'),
+            user == null ? const Text('no data') : Text('ID: ${user!.id}'),
+            if (user != null) Text('Name: ${user!.name}'),
             const SizedBox(
               height: 15,
             ),
@@ -40,10 +43,10 @@ class _MainPageState extends State<MainPage> {
                 ),
                 ElevatedButton(
                     onPressed: () async {
-                      // user = await UserRepository()
-                      //     .getUser(int.tryParse(controller.text) ?? 0);
+                      user = await UserRepository()
+                          .getUser(int.tryParse(controller.text) ?? 0);
 
-                      // setState(() {});
+                      setState(() {});
                     },
                     child: const Text('Get User')),
               ],

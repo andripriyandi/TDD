@@ -21,8 +21,8 @@ void main() {
 
   group("Custom User Test", () {
     User user1 = User(id: 1);
-    User user2 = User(name: "Joko");
-    User user3 = User(id: 1, name: "Joko");
+    User user2 = User(name: "Udin");
+    User user3 = User(id: 1, name: "Udin");
 
     test("Single parameter (is) is valid", () {
       expect(user1.id, equals(1));
